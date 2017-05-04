@@ -12,28 +12,29 @@ ROOT="./src"
 # should order in ascending version, 
 # since newer versions may be able to extact older
 # and we want *first* supporting version (some exceptions apply)
-SUBDIRS="squashfs-2.1-r2 \
-squashfs-3.0 \
-squashfs-3.0-lzma-damn-small-variant \
-others/squashfs-2.0-nb4 \
-others/squashfs-2.2-r2-7z \
-others/squashfs-3.0-e2100 \
-others/squashfs-3.2-r2 \
-others/squashfs-3.2-r2-lzma \
-others/squashfs-3.2-r2-lzma/squashfs3.2-r2/squashfs-tools \
-others/squashfs-3.2-r2-hg612-lzma \
-others/squashfs-3.2-r2-wnr1000 \
-others/squashfs-3.2-r2-rtn12 \
-others/squashfs-3.3 \
-others/squashfs-3.3-lzma/squashfs3.3/squashfs-tools \
-others/squashfs-3.3-grml-lzma/squashfs3.3/squashfs-tools \
-others/squashfs-3.4-cisco \
-others/squashfs-3.4-nb4 \
-others/squashfs-4.2-official \
-others/squashfs-4.2 \
-others/squashfs-4.0-lzma \
-others/squashfs-4.0-realtek \
-others/squashfs-hg55x-bin"
+#SUBDIRS="squashfs-2.1-r2 \
+#squashfs-3.0 \
+#squashfs-3.0-lzma-damn-small-variant \
+#others/squashfs-2.0-nb4 \
+#others/squashfs-2.2-r2-7z \
+#others/squashfs-3.0-e2100 \
+#others/squashfs-3.2-r2 \
+#others/squashfs-3.2-r2-lzma \
+#others/squashfs-3.2-r2-lzma/squashfs3.2-r2/squashfs-tools \
+#others/squashfs-3.2-r2-hg612-lzma \
+#others/squashfs-3.2-r2-wnr1000 \
+#others/squashfs-3.2-r2-rtn12 \
+#others/squashfs-3.3 \
+#others/squashfs-3.3-lzma/squashfs3.3/squashfs-tools \
+#others/squashfs-3.3-grml-lzma/squashfs3.3/squashfs-tools \
+#others/squashfs-3.4-cisco \
+#others/squashfs-3.4-nb4 \
+#others/squashfs-4.2-official \
+#others/squashfs-4.2 \
+#others/squashfs-4.0-lzma \
+#others/squashfs-4.0-realtek \
+#others/squashfs-hg55x-bin"
+SUBDIRS="others/squashfs-v1-v4"
 TIMEOUT="60"
 MKFS=""
 
@@ -91,11 +92,11 @@ echo -e "Attempting to extract SquashFS $MAJOR.X file system...\n"
 
 for SUBDIR in $SUBDIRS
 do
-	if [ "$(echo $SUBDIR | grep "$MAJOR\.")" == "" ]
-	then
-		echo "Skipping $SUBDIR (wrong version)..."
-		continue
-	fi
+	#if [ "$(echo $SUBDIR | grep "$MAJOR\.")" == "" ]
+	#then
+	#	echo "Skipping $SUBDIR (wrong version)..."
+	#	continue
+	#fi
 
 	unsquashfs="$ROOT/$SUBDIR/unsquashfs"
 	mksquashfs="$ROOT/$SUBDIR/mksquashfs"
